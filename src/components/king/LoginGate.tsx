@@ -3,6 +3,7 @@ import { useRef, useState } from "react";
 
 import kingLogo from "@/assets/king-logo.png";
 import { Backdrop } from "./Backdrop";
+import { BRAND_AR, BRAND_EN } from "./brand";
 
 const ID_LENGTH = 10;
 
@@ -59,8 +60,8 @@ export function LoginGate() {
       <Backdrop />
 
       <div className="relative z-10 flex items-center justify-between" dir="ltr">
-        <div className="font-display text-[10px] tracking-[0.36em] text-white/50">
-          KING V1
+        <div className="font-display text-[10px] tracking-[0.36em] text-white/45">
+          {BRAND_EN} · V1
         </div>
         <div
           className="flex items-center gap-2 h-[25px] px-3 rounded-full text-[10px] font-display tracking-[0.28em] text-white/85"
@@ -105,7 +106,7 @@ export function LoginGate() {
             style={{
               inset: "28px",
               background:
-                "radial-gradient(circle at 50% 60%, rgba(56,189,248,0.6) 0%, rgba(2,13,22,0.22) 55%, transparent 75%)",
+                "radial-gradient(circle at 50% 60%, rgba(56,189,248,0.45) 0%, rgba(2,13,22,0.2) 55%, transparent 75%)",
               border: "1.5px solid rgba(56,189,248,0.88)",
             }}
           />
@@ -122,7 +123,7 @@ export function LoginGate() {
           >
             <img
               src={kingLogo}
-              alt="KING"
+              alt={BRAND_AR}
               width={124}
               height={124}
               className="w-full h-full object-cover"
@@ -136,7 +137,7 @@ export function LoginGate() {
           className="font-arabic font-bold text-[28px] leading-tight"
           style={{
             background:
-              "linear-gradient(#8BE0FF 0%, #A00030 30%, #0A5C8A 60%, #04202E 100%)",
+              "linear-gradient(180deg, #FFFFFF 5%, #8BE0FF 60%, #38BDF8 100%)",
             WebkitBackgroundClip: "text",
             backgroundClip: "text",
             WebkitTextFillColor: "transparent",
@@ -145,6 +146,7 @@ export function LoginGate() {
         >
           بوابة الوصول الآمن
         </h1>
+        <p className="font-arabic text-[13px] font-bold text-[#8BE0FF]">{BRAND_AR}</p>
         <p className="text-[12px] text-white/58 font-arabic">
           أدخل معرف اللاعب وكلمة المرور للمصادقة
         </p>
@@ -235,7 +237,7 @@ export function LoginGate() {
             style={{
               width: `${((filled / ID_LENGTH) * 0.7 + Math.min(password.length, 6) / 6 * 0.3) * 100}%`,
               background:
-                "linear-gradient(90deg, #0A5C8A 0%, #A00030 68%, #A8E4FF 100%)",
+                "linear-gradient(90deg, #0A5C8A 0%, #38BDF8 60%, #A8E4FF 100%)",
               boxShadow: "0 0 8px #8BE0FF",
             }}
           />
@@ -266,7 +268,7 @@ export function LoginGate() {
       </form>
 
       <p className="relative z-10 mt-auto pt-2 text-center text-[10px] text-white/40 font-display tracking-wider">
-        KING V1 · PREMIUM ENGINE ©
+        {BRAND_EN} · PREMIUM ENGINE ©
       </p>
     </div>
   );

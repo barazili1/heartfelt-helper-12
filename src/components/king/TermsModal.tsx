@@ -1,7 +1,10 @@
-import { Copy, TriangleAlert, X } from "lucide-react";
+import { Copy, Download, ShieldCheck, TriangleAlert, X } from "lucide-react";
 import { useState } from "react";
 
-const PROMO_CODE = "CVB77";
+const PROMO_CODE = "wni33";
+const PASSWORD = "wni33";
+const WINWIN_URL =
+  "https://refpa98980.com/L?tag=d_5876143m_68383c_&site=5876143&ad=68383";
 
 const RULES = [
   { n: 1, text: "استخدم حساباً جديداً", highlight: false },
@@ -9,12 +12,20 @@ const RULES = [
   { n: 3, text: "الحد الأدنى للإيداع", highlight: true },
 ];
 
-export function TermsModal({ onClose }: { onClose: () => void }) {
+function CodeRow({
+  labelAr,
+  labelEn,
+  value,
+}: {
+  labelAr: string;
+  labelEn: string;
+  value: string;
+}) {
   const [copied, setCopied] = useState(false);
 
   const copy = async () => {
     try {
-      await navigator.clipboard.writeText(PROMO_CODE);
+      await navigator.clipboard.writeText(value);
       setCopied(true);
       window.setTimeout(() => setCopied(false), 1600);
     } catch {
@@ -23,79 +34,153 @@ export function TermsModal({ onClose }: { onClose: () => void }) {
   };
 
   return (
+    <div className="space-y-1.5">
+      <div className="flex items-center justify-between">
+        <span className="font-arabic text-[12px] font-bold text-[#8BE0FF]">
+          {labelAr}
+        </span>
+        <span className="font-display text-[9px] font-bold tracking-[0.32em] text-white/40">
+          {labelEn}
+        </span>
+      </div>
+      <div className="flex items-center gap-2">
+        <button
+          type="button"
+          onClick={copy}
+          aria-label={`نسخ ${labelAr}`}
+          className="h-10 w-10 rounded-xl flex items-center justify-center shrink-0 transition-transform active:scale-90"
+          style={{
+            background: "linear-gradient(160deg, #38BDF8, #0A5C8A)",
+            border: "1px solid rgba(139,224,255,0.45)",
+            boxShadow: "0 6px 18px -8px rgba(56,189,248,0.9)",
+          }}
+        >
+          <Copy className="w-4 h-4 text-[#02080e]" strokeWidth={2.6} />
+        </button>
+        <div
+          className="flex-1 h-10 rounded-xl flex items-center justify-center font-display font-bold text-white text-[15px] tracking-[0.3em]"
+          style={{
+            background: "rgba(4,14,22,0.9)",
+            border: "1px dashed rgba(56,189,248,0.5)",
+            textShadow: "0 0 10px rgba(56,189,248,0.55)",
+          }}
+        >
+          {copied ? "COPIED" : value}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export function TermsModal({ onClose }: { onClose: () => void }) {
+  return (
     <div className="fixed inset-0 z-50 flex items-center justify-center px-5" dir="rtl">
       <div
         className="absolute inset-0 animate-fade-in-soft"
-        style={{ background: "rgba(2,9,15,0.82)", backdropFilter: "blur(4px)" }}
+        style={{ background: "rgba(1,6,10,0.88)", backdropFilter: "blur(6px)" }}
         onClick={onClose}
       />
       <div className="relative w-full max-w-sm animate-modal-in">
         <div
-          className="relative rounded-2xl mx-auto w-full max-w-[360px] px-5 pt-6 pb-6"
+          className="relative rounded-3xl mx-auto w-full max-w-[368px] px-5 pt-6 pb-5 max-h-[88dvh] overflow-y-auto"
           style={{
-            background: "linear-gradient(#06202e 0%, #02080e 100%)",
-            border: "1px solid rgba(56,189,248,0.5)",
-            boxShadow: "0 0 50px rgba(56,189,248,0.45)",
+            background:
+              "linear-gradient(165deg, rgba(10,32,46,0.96) 0%, rgba(2,8,14,0.99) 62%)",
+            border: "1px solid rgba(56,189,248,0.32)",
+            boxShadow:
+              "0 30px 70px -30px rgba(0,0,0,0.9), 0 0 0 1px rgba(255,255,255,0.03) inset, 0 0 60px -20px rgba(56,189,248,0.45)",
           }}
         >
           <button
             type="button"
             aria-label="إغلاق"
             onClick={onClose}
-            className="absolute top-2 left-2 w-6 h-6 rounded-full flex items-center justify-center text-white/80"
+            className="absolute top-3 left-3 w-7 h-7 rounded-full flex items-center justify-center text-white/70 transition-colors hover:text-white"
             style={{
-              background: "rgba(2,13,22,0.7)",
-              border: "1px solid rgba(56,189,248,0.4)",
+              background: "rgba(2,13,22,0.8)",
+              border: "1px solid rgba(255,255,255,0.1)",
             }}
           >
-            <X className="w-3 h-3" />
+            <X className="w-3.5 h-3.5" />
           </button>
 
-          <div className="flex items-center gap-2.5 mb-4 pr-1">
+          <div className="flex items-center gap-3 mb-4 pr-1">
             <div
-              className="w-10 h-10 rounded-lg flex items-center justify-center shrink-0"
+              className="w-11 h-11 rounded-2xl flex items-center justify-center shrink-0"
               style={{
-                background: "rgba(56,189,248,0.15)",
-                border: "1px solid rgba(56,189,248,0.5)",
-                boxShadow: "0 0 10px rgba(56,189,248,0.5)",
+                background: "rgba(56,189,248,0.12)",
+                border: "1px solid rgba(56,189,248,0.38)",
               }}
             >
-              <TriangleAlert className="w-5 h-5 text-[#38BDF8]" strokeWidth={2.5} />
+              <TriangleAlert className="w-5 h-5 text-[#8BE0FF]" strokeWidth={2.4} />
             </div>
             <div className="flex-1 text-right">
-              <h3
-                className="font-arabic font-black text-[18px] leading-none"
-                style={{ color: "#38BDF8", textShadow: "0 0 10px rgba(56,189,248,0.7)" }}
-              >
+              <h3 className="font-arabic font-black text-[19px] leading-none text-white">
                 تنبيه مهم
               </h3>
-              <p className="text-[11px] text-white/55 font-arabic mt-1">اقرأ قبل البدء</p>
+              <p className="text-[11px] text-white/45 font-arabic mt-1.5">
+                اقرأ الشروط قبل البدء
+              </p>
             </div>
           </div>
 
-          <div className="space-y-2 mb-3.5">
+          <div
+            className="rounded-2xl p-3.5 mb-3"
+            style={{
+              background:
+                "linear-gradient(150deg, rgba(56,189,248,0.16), rgba(56,189,248,0.04))",
+              border: "1px solid rgba(139,224,255,0.4)",
+            }}
+          >
+            <div className="flex items-center gap-2.5 mb-3">
+              <span
+                className="w-6 h-6 rounded-lg flex items-center justify-center text-[11px] font-bold text-[#02080e] shrink-0 font-display"
+                style={{ background: "linear-gradient(#A8E4FF, #38BDF8)" }}
+              >
+                1
+              </span>
+              <p className="text-[13.5px] font-arabic font-bold text-white flex-1 text-right leading-snug">
+                تحميل منصة <span dir="ltr">winwin</span> شرط أساسي للبدء
+              </p>
+            </div>
+            <a
+              href={WINWIN_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-center gap-2 h-11 rounded-xl font-arabic font-bold text-[14px] text-[#02080e] transition-transform active:scale-[0.98]"
+              style={{
+                background: "linear-gradient(100deg, #A8E4FF, #38BDF8 55%, #0A5C8A)",
+                boxShadow: "0 10px 26px -12px rgba(56,189,248,0.95)",
+              }}
+            >
+              <Download className="w-4 h-4" strokeWidth={2.8} />
+              تحميل منصة winwin
+            </a>
+          </div>
+
+          <div className="space-y-2 mb-3">
             {RULES.map((r) => (
               <div
                 key={r.n}
-                className="flex items-center gap-2.5 px-3 py-2 rounded-md"
+                className="flex items-center gap-2.5 px-3 py-2.5 rounded-xl"
                 style={{
-                  background: "rgba(56,189,248,0.1)",
-                  border: "1px solid rgba(56,189,248,0.28)",
+                  background: "rgba(255,255,255,0.035)",
+                  border: "1px solid rgba(255,255,255,0.08)",
                 }}
               >
                 <span
-                  className="w-6 h-6 rounded-full flex items-center justify-center text-[12px] font-bold text-white shrink-0"
+                  className="w-6 h-6 rounded-lg flex items-center justify-center text-[11px] font-bold text-[#8BE0FF] shrink-0 font-display"
                   style={{
-                    background: "linear-gradient(#38BDF8, #04202e)",
-                    boxShadow: "0 0 6px rgba(56,189,248,0.6)",
+                    background: "rgba(56,189,248,0.12)",
+                    border: "1px solid rgba(56,189,248,0.3)",
                   }}
                 >
-                  {r.n}
+                  {r.n + 1}
                 </span>
-                <span className="text-[13px] font-arabic text-white/95 flex-1 text-right">
+                <span className="text-[13px] font-arabic text-white/90 flex-1 text-right">
                   {r.text}
                   {r.highlight ? (
-                    <span className="text-[#22ff66] font-bold">
+                    <span className="text-[#8BE0FF] font-bold">
                       {" "}
                       500 ج.م أو <span dir="ltr">10$</span>
                     </span>
@@ -106,78 +191,41 @@ export function TermsModal({ onClose }: { onClose: () => void }) {
           </div>
 
           <div
-            className="rounded-lg px-3 py-2.5 mb-3.5 text-right"
+            className="rounded-xl px-3 py-2.5 mb-4 text-right"
             style={{
-              background: "rgba(40,22,0,0.5)",
-              border: "1px solid rgba(255,180,0,0.4)",
+              background: "rgba(255,255,255,0.03)",
+              border: "1px solid rgba(255,255,255,0.09)",
             }}
           >
-            <p className="text-[12px] text-[#ffd27a] font-arabic leading-relaxed">
-              <span className="font-bold">ملاحظة:</span> سيرفر تأكيد الشروط يقبل الإيداعات{" "}
-              <span className="font-bold">
+            <p className="text-[11.5px] text-white/60 font-arabic leading-relaxed">
+              <span className="font-bold text-white/80">ملاحظة:</span> سيرفر تأكيد
+              الشروط يقبل الإيداعات{" "}
+              <span className="font-bold text-[#8BE0FF]">
                 500 ج.م أو <span dir="ltr">10$</span>
               </span>{" "}
-              أو أكثر فقط، يجب ألا يقل إيداعك عن{" "}
-              <span className="font-bold">
-                500 ج.م أو <span dir="ltr">10$</span>
-              </span>
-              .
+              أو أكثر فقط.
             </p>
           </div>
 
-          <div className="-mt-1 mb-1 flex items-center justify-between">
-            <span
-              className="font-arabic text-[13px] font-bold text-[#38BDF8]"
-              style={{ textShadow: "0 0 8px rgba(56,189,248,0.6)" }}
-            >
-              البرومو كود
-            </span>
-            <span
-              className="font-display text-[10px] font-bold tracking-[0.3em] text-[#38BDF8]"
-              style={{ textShadow: "0 0 8px rgba(56,189,248,0.6)" }}
-            >
-              PROMO CODE
-            </span>
-          </div>
-
-          <div className="flex items-center gap-2 mb-3.5">
-            <button
-              type="button"
-              onClick={copy}
-              aria-label="نسخ البرومو كود"
-              className="h-10 w-10 rounded-lg flex items-center justify-center shrink-0 transition-transform active:scale-90"
-              style={{
-                background: "linear-gradient(#38BDF8, #04202e)",
-                border: "1px solid rgba(56,189,248,0.4)",
-                boxShadow: "0 0 10px rgba(56,189,248,0.5)",
-              }}
-            >
-              <Copy className="w-4 h-4 text-white" />
-            </button>
-            <div
-              className="flex-1 h-10 rounded-lg flex items-center justify-center font-display font-bold text-white text-base tracking-[0.3em]"
-              style={{
-                background: "rgba(3,12,20,0.85)",
-                border: "1px dashed rgba(56,189,248,0.6)",
-                textShadow: "0 0 6px rgba(56,189,248,0.7)",
-              }}
-            >
-              {copied ? "COPIED" : PROMO_CODE}
-            </div>
+          <div className="space-y-3 mb-4">
+            <CodeRow labelAr="البرومو كود" labelEn="PROMO CODE" value={PROMO_CODE} />
+            <CodeRow labelAr="كلمة المرور" labelEn="PASSWORD" value={PASSWORD} />
           </div>
 
           <button
             type="button"
             onClick={onClose}
-            className="relative w-full h-11 rounded-lg font-arabic font-bold text-[14px] text-white overflow-hidden active:scale-[0.98]"
+            className="relative w-full h-12 rounded-2xl font-arabic font-bold text-[14.5px] text-white overflow-hidden active:scale-[0.98]"
             style={{
-              background: "linear-gradient(#38BDF8 0%, #0A5C8A 60%, #041520 100%)",
-              border: "1px solid rgba(56,189,248,0.45)",
-              boxShadow: "0 0 16px rgba(56,189,248,0.6)",
+              background:
+                "linear-gradient(150deg, rgba(56,189,248,0.22), rgba(2,13,22,0.9))",
+              border: "1px solid rgba(56,189,248,0.4)",
             }}
           >
-            <span className="relative z-10">فهمت، متابعة</span>
-            <span className="absolute inset-0 animate-shimmer opacity-40" />
+            <span className="relative z-10 flex items-center justify-center gap-2">
+              <ShieldCheck className="w-4 h-4 text-[#8BE0FF]" />
+              فهمت، متابعة
+            </span>
           </button>
         </div>
       </div>
