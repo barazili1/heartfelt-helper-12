@@ -142,3 +142,96 @@
     color: var(--color-foreground);
   }
 }
+
+/* ── KING theme tokens ─────────────────────────────────────────── */
+@theme {
+  --font-display: "Rajdhani", "IBM Plex Sans Arabic", sans-serif;
+  --font-arabic: "IBM Plex Sans Arabic", system-ui, sans-serif;
+  --color-neon: #38bdf8;
+}
+
+@utility grid-bg {
+  background-image:
+    linear-gradient(rgba(56, 189, 248, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(56, 189, 248, 0.07) 1px, transparent 1px);
+  background-size: 36px 36px;
+}
+
+@utility neon-text {
+  color: #fff;
+  text-shadow: 0 0 8px rgba(56, 189, 248, 0.9), 0 0 18px rgba(56, 189, 248, 0.6);
+}
+
+@utility animate-float-up {
+  animation: float-up linear infinite;
+}
+@utility animate-fade-up {
+  animation: fade-up 0.5s ease-out both;
+}
+@utility animate-ring-pulse {
+  animation: ring-pulse 2.4s ease-in-out infinite;
+}
+@utility animate-pulse-red {
+  animation: pulseRed 2.2s ease-in-out infinite;
+}
+@utility animate-shimmer {
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.18), transparent) 0 0 / 200% 100%;
+  animation: shimmer 2s linear infinite;
+}
+@utility animate-fade-in-soft {
+  animation: fade-in-soft 0.28s ease-out both;
+}
+@utility animate-modal-in {
+  animation: modal-in 0.32s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+@utility animate-cell-reveal {
+  animation: cell-reveal 0.3s ease-out both;
+}
+@utility animate-digit-pop {
+  animation: digit-pop 0.22s ease-out both;
+}
+@utility animate-spin-slow {
+  animation: spin-slow 14s linear infinite;
+}
+
+@keyframes pulseRed {
+  0%, 100% { box-shadow: 0 0 12px rgba(56, 189, 248, 0.5), 0 0 24px rgba(56, 189, 248, 0.3); }
+  50% { box-shadow: 0 0 24px rgba(56, 189, 248, 0.9), 0 0 60px rgba(56, 189, 248, 0.55); }
+}
+@keyframes float-up {
+  0% { opacity: 0; transform: translateY(0) scale(1); }
+  10% { opacity: 1; }
+  100% { opacity: 0; transform: translateY(-110vh) scale(0.4); }
+}
+@keyframes spin-slow {
+  to { transform: rotate(360deg); }
+}
+@keyframes ring-pulse {
+  0%, 100% { opacity: 0.7; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.08); }
+}
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+@keyframes fade-up {
+  0% { opacity: 0; transform: translateY(14px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+@keyframes fade-in-soft {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+@keyframes modal-in {
+  0% { opacity: 0; transform: scale(0.97) translateY(8px); }
+  100% { opacity: 1; transform: scale(1) translateY(0); }
+}
+@keyframes cell-reveal {
+  0% { opacity: 0; transform: scale(0.7); }
+  100% { opacity: 1; transform: scale(1); }
+}
+@keyframes digit-pop {
+  0% { opacity: 0; transform: scale(0.6); }
+  60% { opacity: 1; transform: scale(1.12); }
+  100% { opacity: 1; transform: scale(1); }
+}
