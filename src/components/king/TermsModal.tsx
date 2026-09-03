@@ -2,7 +2,7 @@ import { Copy, Download, ShieldCheck, TriangleAlert, X } from "lucide-react";
 import { useState } from "react";
 
 const PROMO_CODE = "wni33";
-const PASSWORD = "wni33";
+
 const WINWIN_URL =
   "https://refpa98980.com/L?tag=d_5876143m_68383c_&site=5876143&ad=68383";
 
