@@ -40,14 +40,14 @@ export function ParticleField({ count = 70 }: { count?: number }) {
       const max = linkDist();
 
       for (let i = 0; i < dots.length; i += 1) {
-        const a = dots[i];
+        const a = dots[i]!;
         a.x += a.vx;
         a.y += a.vy;
         if (a.x < 0 || a.x > w) a.vx *= -1;
         if (a.y < 0 || a.y > h) a.vy *= -1;
 
         for (let j = i + 1; j < dots.length; j += 1) {
-          const b = dots[j];
+          const b = dots[j]!;
           const dx = a.x - b.x;
           const dy = a.y - b.y;
           const d = Math.hypot(dx, dy);
