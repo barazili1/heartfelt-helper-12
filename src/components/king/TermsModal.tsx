@@ -208,10 +208,10 @@ export function TermsModal({ onClose }: { onClose: () => void }) {
             </p>
           </div>
 
-          <div className="space-y-3 mb-4">
+          <div className="mb-4">
             <CodeRow labelAr="البرومو كود" labelEn="PROMO CODE" value={PROMO_CODE} />
-            <CodeRow labelAr="كلمة المرور" labelEn="PASSWORD" value={PASSWORD} />
           </div>
+
 
           <button
             type="button"
