@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 
 import kingLogo from "@/assets/king-logo.png";
 import { Backdrop } from "./Backdrop";
+import { ParticleField } from "./ParticleField";
 import { BRAND_AR, BRAND_EN, BRAND_TAG } from "./brand";
 
 const PHASES = [
@@ -34,87 +35,86 @@ export function BootScreen({ onDone }: { onDone: () => void }) {
 
   return (
     <div
-      className="relative min-h-[100dvh] flex flex-col items-center justify-center px-6 overflow-hidden"
+      className="relative min-h-[100dvh] flex flex-col items-center justify-center px-6 py-10 overflow-hidden"
       dir="rtl"
     >
       <Backdrop crosshair />
+      <ParticleField count={70} />
 
-      <div className="relative z-10 flex flex-col items-center gap-8 animate-fade-up w-full">
-        <div className="relative w-[200px] h-[200px] flex items-center justify-center">
+      <div className="relative z-10 flex flex-col items-center w-full max-w-[520px] animate-fade-up">
+        <div className="relative flex items-center justify-center w-[clamp(160px,44vw,240px)] aspect-square">
           <div
-            className="absolute inset-0 rounded-full animate-ring-pulse"
+            className="absolute inset-0 rounded-full animate-spin-slow"
+            style={{ border: "1px dashed rgba(139,224,255,0.28)" }}
+          />
+          <div
+            className="absolute rounded-full animate-ring-pulse"
             style={{
-              border: "1px solid rgba(56,189,248,0.28)",
+              inset: "10%",
+              border: "1px solid rgba(56,189,248,0.35)",
               boxShadow:
-                "0 0 50px -10px rgba(56,189,248,0.5), inset 0 0 40px rgba(56,189,248,0.14)",
+                "0 0 60px -16px rgba(56,189,248,0.55), inset 0 0 44px rgba(56,189,248,0.12)",
             }}
           />
           <div
-            className="absolute rounded-full animate-spin-slow"
-            style={{ inset: "18px", border: "1px dashed rgba(139,224,255,0.4)" }}
-          />
-          <div
-            className="absolute rounded-full"
+            className="relative rounded-full overflow-hidden w-[62%] aspect-square"
             style={{
-              inset: "34px",
-              border: "1px solid rgba(56,189,248,0.5)",
-            }}
-          />
-          <div
-            className="relative rounded-full overflow-hidden"
-            style={{
-              width: "150px",
-              height: "150px",
-              border: "1px solid rgba(255,255,255,0.1)",
+              border: "1px solid rgba(255,255,255,0.12)",
               boxShadow:
-                "0 20px 50px -20px rgba(56,189,248,0.85), inset 0 0 22px rgba(0,0,0,0.6)",
+                "0 24px 60px -24px rgba(56,189,248,0.85), inset 0 0 26px rgba(0,0,0,0.65)",
               background: "#02080e",
             }}
           >
             <img
               src={kingLogo}
               alt={BRAND_AR}
-              width={150}
-              height={150}
               className="w-full h-full object-cover"
             />
           </div>
         </div>
 
-        <div className="text-center space-y-2.5">
+        <div className="text-center mt-8 md:mt-10 space-y-3">
           <h1
-            className="font-arabic font-black text-[30px] leading-none"
+            className="font-arabic font-black text-[clamp(26px,7vw,44px)] leading-[1.15]"
             style={{
-              background: "linear-gradient(180deg, #FFFFFF 10%, #8BE0FF 90%)",
+              background: "linear-gradient(180deg, #FFFFFF 8%, #8BE0FF 92%)",
               WebkitBackgroundClip: "text",
               backgroundClip: "text",
               WebkitTextFillColor: "transparent",
-              filter: "drop-shadow(0 0 18px rgba(56,189,248,0.5))",
+              filter: "drop-shadow(0 0 22px rgba(56,189,248,0.45))",
             }}
           >
             {BRAND_AR}
           </h1>
-          <div className="flex items-center justify-center gap-2.5" dir="ltr">
+          <div className="flex items-center justify-center gap-3" dir="ltr">
             <span
-              className="h-px w-9"
+              className="h-px w-8 md:w-14"
               style={{ background: "linear-gradient(90deg, transparent, #38BDF8)" }}
             />
-            <span className="font-display text-[10px] tracking-[0.42em] text-white/55">
+            <span className="font-display text-[9.5px] md:text-[11px] tracking-[0.42em] text-white/55 whitespace-nowrap">
               {BRAND_EN} · {BRAND_TAG}
             </span>
             <span
-              className="h-px w-9"
+              className="h-px w-8 md:w-14"
               style={{ background: "linear-gradient(90deg, #38BDF8, transparent)" }}
             />
           </div>
         </div>
 
-        <div className="w-72 space-y-2.5" dir="ltr">
+        <div
+          className="w-full max-w-[360px] mt-9 md:mt-12 rounded-2xl px-4 py-4 space-y-3"
+          dir="ltr"
+          style={{
+            background: "rgba(3,12,20,0.55)",
+            border: "1px solid rgba(56,189,248,0.18)",
+            backdropFilter: "blur(8px)",
+          }}
+        >
           <div
-            className="h-1 rounded-full overflow-hidden relative"
+            className="h-1.5 rounded-full overflow-hidden relative"
             style={{
               background: "rgba(255,255,255,0.07)",
-              border: "1px solid rgba(56,189,248,0.2)",
+              border: "1px solid rgba(56,189,248,0.18)",
             }}
           >
             <div
@@ -122,12 +122,12 @@ export function BootScreen({ onDone }: { onDone: () => void }) {
               style={{
                 width: `${progress}%`,
                 background: "linear-gradient(90deg, #0A5C8A, #38BDF8, #A8E4FF)",
-                boxShadow: "0 0 12px #38BDF8",
+                boxShadow: "0 0 14px #38BDF8",
               }}
             />
             <div className="absolute inset-0 animate-shimmer pointer-events-none" />
           </div>
-          <div className="flex justify-between text-[10px] font-display tracking-[0.25em]">
+          <div className="flex justify-between items-center text-[10px] md:text-[11px] font-display tracking-[0.25em]">
             <span className="text-white/55">{phase}</span>
             <span className="text-[#8BE0FF] tabular-nums">
               {Math.round(progress)}%
@@ -136,7 +136,7 @@ export function BootScreen({ onDone }: { onDone: () => void }) {
         </div>
       </div>
 
-      <p className="absolute bottom-5 left-0 right-0 text-center text-[10px] text-white/30 font-display tracking-[0.4em]">
+      <p className="relative z-10 mt-10 text-center text-[9.5px] md:text-[10px] text-white/30 font-display tracking-[0.4em]">
         SECURE · ENCRYPTED · V1
       </p>
     </div>
