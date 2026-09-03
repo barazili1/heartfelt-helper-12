@@ -132,30 +132,31 @@ export function TermsModal({ onClose }: { onClose: () => void }) {
               border: "1px solid rgba(139,224,255,0.4)",
             }}
           >
-            <div className="flex items-center gap-2.5 mb-3">
+            <div className="flex items-center gap-2.5">
               <span
                 className="w-6 h-6 rounded-lg flex items-center justify-center text-[11px] font-bold text-[#02080e] shrink-0 font-display"
                 style={{ background: "linear-gradient(#A8E4FF, #38BDF8)" }}
               >
                 1
               </span>
-              <p className="text-[13.5px] font-arabic font-bold text-white flex-1 text-right leading-snug">
-                تحميل منصة <span dir="ltr">winwin</span> شرط أساسي للبدء
+              <p className="text-[13px] font-arabic font-bold text-white flex-1 text-right leading-snug">
+                تحميل منصة <span dir="ltr">winwin</span> شرط أساسي
               </p>
+              <a
+                href={WINWIN_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="shrink-0 flex items-center gap-1.5 h-9 px-3 rounded-xl font-arabic font-bold text-[12.5px] text-[#02080e] transition-transform active:scale-95"
+                style={{
+                  background: "linear-gradient(100deg, #A8E4FF, #38BDF8 60%, #0A5C8A)",
+                  boxShadow: "0 8px 20px -10px rgba(56,189,248,0.95)",
+                }}
+              >
+                <Download className="w-3.5 h-3.5" strokeWidth={2.8} />
+                تحميل
+              </a>
             </div>
-            <a
-              href={WINWIN_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center justify-center gap-2 h-11 rounded-xl font-arabic font-bold text-[14px] text-[#02080e] transition-transform active:scale-[0.98]"
-              style={{
-                background: "linear-gradient(100deg, #A8E4FF, #38BDF8 55%, #0A5C8A)",
-                boxShadow: "0 10px 26px -12px rgba(56,189,248,0.95)",
-              }}
-            >
-              <Download className="w-4 h-4" strokeWidth={2.8} />
-              تحميل منصة winwin
-            </a>
+
           </div>
 
           <div className="space-y-2 mb-3">
