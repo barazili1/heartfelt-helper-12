@@ -8,16 +8,16 @@ import { TermsModal } from "@/components/king/TermsModal";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "KING V1 — بوابة الوصول الآمن" },
+      { title: "الاسكربت الروسي — بوابة الوصول الآمن" },
       {
         name: "description",
         content:
-          "بوابة KING V1 الآمنة: أدخل معرف اللاعب وكلمة المرور للمصادقة والوصول إلى محرك KING المميز.",
+          "بوابة الاسكربت الروسي الآمنة: أدخل معرف اللاعب وكلمة المرور للمصادقة والوصول إلى المحرك المميز.",
       },
-      { property: "og:title", content: "KING V1 — بوابة الوصول الآمن" },
+      { property: "og:title", content: "الاسكربت الروسي — بوابة الوصول الآمن" },
       {
         property: "og:description",
-        content: "مصادقة مشفّرة للوصول إلى محرك KING V1 المميز.",
+        content: "مصادقة مشفّرة للوصول إلى المحرك المميز.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
